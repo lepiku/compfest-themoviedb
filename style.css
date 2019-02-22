@@ -1,0 +1,98 @@
+body {
+	background-color: #2a2a2a;
+	font-family: "Arial";
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.topnav {
+	background-color: #ffa843;
+	padding: 20px 10px;
+	display: flex;
+	justify-content: center;
+	align-items: baseline;
+
+	position: fixed;
+	top: 0px;
+	width: 100%;
+}
+
+input {
+	width: 25%;
+}
+
+.spacer, .menu {
+	width: 30%;
+}
+
+.menu {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.menu a {
+	color: #424242;
+	font-size: 18px;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 0px 10px;
+}
+
+.menu a.active {
+	text-decoration: underline;
+}
+
+.content-container {
+	margin-top: 0;
+	color: #fff;
+	min-height: 100%;
+}
+
+.content-container h2 {
+	margin: 0;
+	padding: 40px 40px 0px 40px;
+}
+
+.content {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.content a, a:active, .content a:hover, .content a:focus {
+	border: 0;
+	outline: 0;
+	text-decoration: none;
+}
+
+.item {
+	background-color: #181818;
+	display: flex;
+	width: 400px;
+	height: 150px;
+	margin: 15px;
+	overflow: hidden;
+}
+
+.item img {
+	height: 150px;
+}
+
+.data {
+	padding: 14px;
+}
+
+.data h4 {
+	margin: 0;
+	color: white;
+}
+
+.data .release-date {
+	color: grey;
+}
+
+.data p {
+	margin: 0;
+	color: #ccc;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Discover</title>
+	<link rel="stylesheet" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+	<div class="all">
+		<div class="topnav">
+		<div class="spacer"></div>
+			<input type="text" id="search" onkeyup="searchFunction()" placeholder="Search your favorite movies">
+			<div class="menu">
+				<a class="active" href="page.html">Discover</a>
+				<a href="">Favorites</a>
+			</div>
+		</div>
+
+		<div class="content-container" id="content-container">
+			<h2>Most Popular</h2>
+			<div class="content"></div>
+		</div>
+
+		<!-- ajax jquery -->
+		<script>
+
+			$.ajax({url: "https://api.themoviedb.org/3/discover/movie?api_key=6be75f67395913eaf1a30277bde07319",
+					success: function(response) {
+							for (var x = 0; x < response.results.length; x++) {
+									var data = response.results[x];
+
+									$('.content').append(
+											'<a id="item-' + x + '" onclick="detail(' + data.id + ')" href="#' + data.id + '"><div class="item">' +
+												'<img src="https://image.tmdb.org/t/p/w500' + data.poster_path + '" alt="poster">' +
+												'<div class="data">' +
+													'<h4>' + data.title + ' <span class="release-date">(' + data.release_date.slice(0, 4) + ')</span></h4>' +
+													'<p><span style="color: orange;">Rating:</span> ' + data.vote_average + '/10</p>' +
+													'<p>' + data.overview + '</p>' +
+												'</div>' +
+											'</div></a>'
+									);
+							}
+					}
+			});
+
+			function detail(id) {
+					$.ajax({url: "https://api.themoviedb.org/3/movie/" + id + "?api_key=6be75f67395913eaf1a30277bde07319",
+							success: function(response) {
+									console.log(id);
+							}
+					});
+			}
+
+		</script>
+
+	</div>
+</body>
+</html>
